@@ -1,4 +1,4 @@
-# nowcom-rancher-plugins
+# trident-extension-package
 Nowcom Rancher Dashboard UI.
 
 
