@@ -358,6 +358,15 @@ background-color: #f44336;
   padding: 20px;
 }
 
+.hover-container {
+  display: flex;
+  align-items: center;
+}
+.copy-container {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 /* pagination (always make sure this is at the bottom) */
 .smart-pagination {
   text-align: center;

@@ -21,25 +21,6 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import {
-  // Directives
-  vTooltip,
-  vClosePopper,
-  // Components
-  Dropdown,
-  Tooltip,
-  Menu
-} from 'floating-vue'
-
-Vue.directive('tooltip', vTooltip)
-Vue.directive('close-popper', vClosePopper)
-
-Vue.component('VDropdown', Dropdown)
-Vue.component('VTooltip', Tooltip)
-Vue.component('VMenu', Menu)
-import 'floating-vue/dist/style.css'
-
 export default {
   name: 'DisplayValue',
   props: {
@@ -48,7 +29,7 @@ export default {
       required: true
     },
     value: {
-      type: String || Number,
+      type: [String, Number],
       required: true
     },
     icon: {
@@ -99,7 +80,8 @@ export default {
 
   .value-placeholder {
     opacity: 1;
-    min-width: 0
+    min-width: 0;
+    max-width: 20rem;
   }
 
   .copy-container {

@@ -60,36 +60,22 @@ const TRIDENT_TABLE_HEADERS: SortableHeaderType[] = [
   },
 ];
 
-const SORTABLE_SUB_NETWORK_HEADERS: SortableHeaderType[] = [
+const WIKI_TABLE_HEADERS: SortableHeaderType[] = [
   {
-      name: 'longName',
-      label: 'Subnet Name',
-      sort: ['longName'],
-      search: ['longName'],
-      width: 50,
+      name: 'title',
+      label: 'Title',
+      sort: ['title'],
+      search: ['title'],
+      width: 10,
   },
   {
-      name: 'formattedAddress',
-      label: 'Network Address',
-      sort: ['formattedAddress'],
-      search: ['formattedAddress'],
-      width: 30
+      name: 'url',
+      label: 'URL',
+      sort: ['url'],
+      search: ['url'],
+      width: 10
   },
-  {
-      name: 'translatedAddress',
-      label: 'Translated Address',
-      sort: ['translatedAddress'],
-      search: ['translatedAddress'],
-      width: 30
-  },
-  // {
-  //     name: 'prefix_len',
-  //     label: 'Network Prefix',
-  //     sort: ['prefix_len'],
-  //     search: ['prefix_len'],
-  //     width: 10
-  // }
 ];
 
 
-export { TRIDENT_TABLE_HEADERS, SORTABLE_SUB_NETWORK_HEADERS }
+export { TRIDENT_TABLE_HEADERS, WIKI_TABLE_HEADERS }
