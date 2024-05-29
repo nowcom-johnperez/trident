@@ -1,7 +1,7 @@
 {
   "name": "rancher-nowcom",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.1.1",
+  "private": true,
   "engines": {
     "node": ">=12"
   },
