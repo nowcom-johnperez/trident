@@ -13,7 +13,7 @@
 
         <div class="tab-content" :class="{ 'show': currentTab === 1 }">
           <!-- Runs -->
-          <p>Runs</p>
+          <Runs />
         </div>
 
         <div class="tab-content" :class="{ 'show': currentTab === 2 }">
@@ -27,11 +27,13 @@
 <script>
   import Tabs from '../common/Tabs'
   import Details from './tabs/Details.vue'
+  import Runs from './tabs/Runs.vue'
   export default {
     name: 'Overview',
     components: {
       Tabs,
-      Details
+      Details,
+      Runs
     },
     props: {
       detail: {

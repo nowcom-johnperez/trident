@@ -56,11 +56,6 @@ background-color: #4caf50;
 /* Green */
 }
 
-.error {
-background-color: #f44336;
-/* Red */
-}
-
 .tabs {
   display: flex;
 }
@@ -84,7 +79,7 @@ background-color: #f44336;
 
 .tab-content-container .tab-content {
   display: none;
-  height: 70vh;
+  min-height: 70vh;
 }
 
 .tab-content-container .tab-content.show {

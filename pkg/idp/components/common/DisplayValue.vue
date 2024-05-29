@@ -4,20 +4,21 @@
       <i v-if="icon" :class="['fa mr-5', icon, 'placholder-icon']"></i>{{ label }}
     </div>
     
-      <div class="value-placeholder">
-        <VTooltip :distance="15">
-          <span class="hover-container" @mouseover="showCopyIcon = true" @mouseleave="showCopyIcon = false">
-            <span class="content">{{ value }}</span>
-            <span class="ml-5 copy-container" v-show="showCopyIcon" @click="copyValue">
-              <i class="fa fa-copy"></i>
-            </span>
+    <div class="value-placeholder">
+      <VTooltip v-if="!editable" :distance="15">
+        <span class="hover-container" @mouseover="showCopyIcon = true" @mouseleave="showCopyIcon = false">
+          <span class="content">{{ displayValue }}</span>
+          <span class="ml-5 copy-container" v-show="showCopyIcon" @click="copyValue">
+            <i class="fa fa-copy"></i>
           </span>
- 
-          <template #popper>
-            {{ value }}
-          </template>
-        </VTooltip>
-      </div>
+        </span>
+
+        <template #popper>
+          {{ displayValue }}
+        </template>
+      </VTooltip>
+      <input v-else v-model="displayValue" type="text" @input="updateValue">
+    </div>
   </div>
 </template>
 <script>
@@ -35,11 +36,21 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    editable: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      showCopyIcon: false
+      showCopyIcon: false,
+      displayValue: this.value
+    }
+  },
+  watch: {
+    value(newValue) {
+      this.displayValue = newValue;
     }
   },
   methods: {
@@ -49,6 +60,10 @@ export default {
       }).catch(err => {
         console.error(`Copy error`, err)
       })
+    },
+    updateValue(event) {
+      this.displayValue = event.target.value;
+      this.$emit('input', { value: event.target.value, label: this.label });
     }
   }
 }
@@ -59,7 +74,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 50%;
+  // width: 50%;
   height: 2rem;
   text-align: left;
 

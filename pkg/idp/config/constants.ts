@@ -4,3 +4,4 @@ export const BLANK_CLUSTER = '_';
 export const CUSTOM_K8S_RESOURCE_NAME = 'trident';
 export const TRIDENT_PAGE_NAME = 'Trident';
 export const WIKI_PAGE_NAME = 'Wiki';
+export const HOME = 'home';

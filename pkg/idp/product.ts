@@ -1,16 +1,15 @@
 import { IPlugin } from '@shell/core/types';
-import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, BLANK_CLUSTER, CUSTOM_K8S_RESOURCE_NAME, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME } from './config/constants';
+import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, BLANK_CLUSTER, CUSTOM_K8S_RESOURCE_NAME, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME, HOME } from './config/constants';
 
 export function init($plugin: IPlugin, store: any) {
   const { product, configureType, basicType, virtualType } = $plugin.DSL(store, PRODUCT_NAME);
 
   product({
-    icon:    'gear',
+    icon:    'terminal',
     inStore: 'management',
     weight:  100,
     to:      {
-      name:      `${ PRODUCT_ROUTE_NAME }-c-cluster-${ TRIDENT_PAGE_NAME }`,
-      // path:      `/${ PRODUCT_ROUTE_NAME }/c/:cluster`,
+      name:      `${PRODUCT_ROUTE_NAME}-c-cluster-${HOME}`,
       params:      {
         product: PRODUCT_NAME,
         cluster: BLANK_CLUSTER,
@@ -34,6 +33,30 @@ export function init($plugin: IPlugin, store: any) {
         product: PRODUCT_NAME,
         cluster: BLANK_CLUSTER,
         resource: CUSTOM_K8S_RESOURCE_NAME
+      }
+    }
+  });
+
+  virtualType({
+    label: 'Home',
+    name: HOME,
+    route: {
+      name: `${PRODUCT_ROUTE_NAME}-c-cluster-${HOME}`,
+      params: {
+        product: PRODUCT_NAME,
+        cluster: BLANK_CLUSTER
+      }
+    }
+  });
+
+  virtualType({
+    label: 'Home 2',
+    name: `${HOME}1`,
+    route: {
+      name: `${PRODUCT_ROUTE_NAME}-c-cluster-${HOME}1`,
+      params: {
+        product: PRODUCT_NAME,
+        cluster: BLANK_CLUSTER
       }
     }
   });
@@ -67,5 +90,5 @@ export function init($plugin: IPlugin, store: any) {
   });
 
   // registering the defined pages as side-menu entries
-  basicType([CUSTOM_K8S_RESOURCE_NAME, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME]);
+  basicType([CUSTOM_K8S_RESOURCE_NAME, HOME, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME]);
 }
