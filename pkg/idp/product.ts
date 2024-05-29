@@ -5,7 +5,7 @@ export function init($plugin: IPlugin, store: any) {
   const { product, configureType, basicType, virtualType } = $plugin.DSL(store, PRODUCT_NAME);
 
   product({
-    icon:    'terminal',
+    icon:    'application',
     inStore: 'management',
     weight:  100,
     to:      {
