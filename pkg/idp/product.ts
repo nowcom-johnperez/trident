@@ -19,23 +19,23 @@ export function init($plugin: IPlugin, store: any) {
   });
 
   // defining a k8s resource as page
-  configureType(CUSTOM_K8S_RESOURCE_NAME, {
-    displayName: 'some-custom-name-you-wish-to-assign-to-this-resource',
-    isCreatable: true,
-    isEditable:  true,
-    isRemovable: true,
-    showAge:     true,
-    showState:   true,
-    canYaml:     true,
-    customRoute: {
-      name: `${ PRODUCT_ROUTE_NAME }-c-cluster-resource`,
-      params: {
-        product: PRODUCT_NAME,
-        cluster: BLANK_CLUSTER,
-        resource: CUSTOM_K8S_RESOURCE_NAME
-      }
-    }
-  });
+  // configureType(CUSTOM_K8S_RESOURCE_NAME, {
+  //   displayName: 'some-custom-name-you-wish-to-assign-to-this-resource',
+  //   isCreatable: true,
+  //   isEditable:  true,
+  //   isRemovable: true,
+  //   showAge:     true,
+  //   showState:   true,
+  //   canYaml:     true,
+  //   customRoute: {
+  //     name: `${ PRODUCT_ROUTE_NAME }-c-cluster-resource`,
+  //     params: {
+  //       product: PRODUCT_NAME,
+  //       cluster: BLANK_CLUSTER,
+  //       resource: CUSTOM_K8S_RESOURCE_NAME
+  //     }
+  //   }
+  // });
 
   virtualType({
     label: 'Home',
