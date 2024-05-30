@@ -1,7 +1,6 @@
-import { IPlugin } from '@shell/core/types';
 import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, BLANK_CLUSTER, CUSTOM_K8S_RESOURCE_NAME, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME, HOME } from './config/constants';
 
-export function init($plugin: IPlugin, store: any) {
+export function init($plugin: any, store: any) {
   const { product, configureType, basicType, virtualType } = $plugin.DSL(store, PRODUCT_NAME);
 
   product({
