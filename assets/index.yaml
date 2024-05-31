@@ -3,6 +3,26 @@ entries:
   trident:
   - annotations:
       catalog.cattle.io/certified: rancher
+      catalog.cattle.io/kube-version: '>= 1.16.0-0'
+      catalog.cattle.io/namespace: cattle-ui-plugin-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux, windows
+      catalog.cattle.io/rancher-version: '>= 2.7.0-0'
+      catalog.cattle.io/scope: management
+      catalog.cattle.io/ui-component: plugins
+    apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-06-01T03:33:40.377045+08:00"
+    description: Trident simplifies setup and management of Kubernetes clusters, enabling
+      each team to quickly and effortlessly create their own testing environments.
+    digest: 475fc998b3d91872147ecd48f2ed6419ac8750b7f876733f2ffa9ff52ebc4360
+    name: trident
+    type: application
+    urls:
+    - assets/idp/trident-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      catalog.cattle.io/certified: rancher
       catalog.cattle.io/kube-version: '>= 1.16.0-0 < 1.29.0-0'
       catalog.cattle.io/namespace: cattle-ui-plugin-system
       catalog.cattle.io/os: linux
@@ -12,7 +32,7 @@ entries:
       catalog.cattle.io/ui-component: plugins
     apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-06-01T02:55:43.113905+08:00"
+    created: "2024-06-01T03:33:40.37693+08:00"
     description: Trident simplifies setup and management of Kubernetes clusters, enabling
       each team to quickly and effortlessly create their own testing environments.
     digest: 59e34f2c706a50bf9d5a1c4c5d79b56294fbb8b4d6fc8d45d3a9ac4329459b79
@@ -21,4 +41,4 @@ entries:
     urls:
     - assets/idp/trident-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-01T02:55:43.113457+08:00"
+generated: "2024-06-01T03:33:40.376453+08:00"
