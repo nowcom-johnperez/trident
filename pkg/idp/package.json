@@ -2,7 +2,7 @@
   "name": "trident",
   "description": "Trident simplifies setup and management of Kubernetes clusters, enabling each team to quickly and effortlessly create their own testing environments.",
   "version": "0.1.2",
-  "private": true,
+  "private": false,
   "rancher": {
     "annotations": {
       "catalog.cattle.io/kube-version": ">= 1.16.0-0",
