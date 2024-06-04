@@ -1,10 +1,10 @@
 // Don't forget to create a VueJS page called index.vue in the /pages folder!!!
-import LandingPage from '../pages/TridentPage.vue';
+import TridentPage from '../pages/TridentPage.vue';
 import WikiPage from '../pages/WikiPage.vue';
 import HomePage from '../pages/HomePage.vue';
 import HomePage1 from '../pages/homepage-1.vue';
 
-import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, BLANK_CLUSTER, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME, HOME } from '../config/constants';
+import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, BLANK_CLUSTER, TRIDENT_PAGE_NAME, WIKI_PAGE_NAME, HOME, DEV_TOOLS_PAGE_NAME } from '../config/constants';
 
 const routes = [
   {
@@ -30,7 +30,17 @@ const routes = [
   {
     name:      `${ PRODUCT_ROUTE_NAME }-c-cluster-${ TRIDENT_PAGE_NAME }`,
     path:      `/${ PRODUCT_ROUTE_NAME }/c/:cluster/${TRIDENT_PAGE_NAME}`,
-    component: LandingPage,
+    component: TridentPage,
+    meta:      {
+      product: PRODUCT_NAME,
+      cluster: BLANK_CLUSTER,
+      pkg:     PRODUCT_NAME
+    }
+  },
+  {
+    name:      `${ PRODUCT_ROUTE_NAME }-c-cluster-${ DEV_TOOLS_PAGE_NAME }`,
+    path:      `/${ PRODUCT_ROUTE_NAME }/c/:cluster/${DEV_TOOLS_PAGE_NAME}`,
+    component: TridentPage,
     meta:      {
       product: PRODUCT_NAME,
       cluster: BLANK_CLUSTER,

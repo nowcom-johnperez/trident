@@ -1,15 +1,20 @@
 <template>
   <div class="rebranded">
     <img src="../assets/img/nowcom.jpeg" alt="NOWCOM" width="600" height="200" class="mb-20">
-    <img src="../assets/img/icon.svg" alt="NOWCOM" width="600" height="200" class="mb-20">
-    <h1>Welcome to NOWCOM</h1>
-    <p>This is the rebranded home page.</p>
+    <div style="width: 100%">
+      <K8STable />
+      <K8STable class="mt-40" />
+    </div>
   </div>
 </template>
 
 <script>
+import K8STable from '../components/home/k8s-table'
 export default {
   name: 'HomePage',
+  components: {
+    K8STable
+  }
 }
 </script>
 
