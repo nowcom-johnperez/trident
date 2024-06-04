@@ -1,19 +1,44 @@
 <template>
   <div class="rebranded">
-    <img src="../assets/img/nowcom.jpeg" alt="NOWCOM" width="600" height="200" class="mb-20">
-    <div style="width: 100%">
+    <div class="row mb-20 full-width" style="align-items: center; justify-content: space-between;">
+      <div class="col">
+        <cButton class="cbtn btn-light" @click="featureRequest">
+          Feature Request
+        </cButton>
+      </div>
+      <div class="col span-9" style="text-align: center;">
+        <img src="../assets/img/nowcom.jpeg" alt="NOWCOM" width="400" height="150">
+      </div>
+    </div>
+    
+    <div class="full-width">
       <K8STable />
-      <K8STable class="mt-40" />
+      <Virtualization class="mt-40" />
     </div>
   </div>
 </template>
 
 <script>
+import cButton from '../components/common/Button'
 import K8STable from '../components/home/k8s-table'
+import Virtualization from '../components/home/virtualization'
+import { getVendor } from '@shell/config/private-label';
 export default {
   name: 'HomePage',
   components: {
-    K8STable
+    K8STable,
+    Virtualization,
+    cButton,
+  },
+  data() {
+    return {
+      vendor: getVendor(),
+    }
+  },
+  methods: {
+    featureRequest() {
+      console.log(`featureRequest`)
+    }
   }
 }
 </script>

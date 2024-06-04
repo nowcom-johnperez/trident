@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Wiki</h1>
+    <h1>Dev Tools</h1>
 
     <div class="mt-10">
       <SortableTable
@@ -15,11 +15,26 @@
         <template #cell:title="{row}">
           <a href="#" @click.prevent="openSidebar(row)">{{ row.title }}</a>
         </template>
-        <template #cell:url="{row}">
-          <span class="row">
-            <IconLink :value="row.url" class="mr-20" />
-            <CopyToClipboard class="cbtn" :text="row.url" />
+        <template #cell:dev2url="{row}">
+          <span v-if="row.dev2url" class="row">
+            <IconLink :value="row.dev2url" class="mr-20" />
+            <CopyToClipboard class="cbtn" :text="row.dev2url" />
           </span>
+          <span v-else>-</span>
+        </template>
+        <template #cell:int0url="{row}">
+          <span v-if="row.int0url" class="row">
+            <IconLink :value="row.int0url" class="mr-20" />
+            <CopyToClipboard class="cbtn" :text="row.int0url" />
+          </span>
+          <span v-else>-</span>
+        </template>
+        <template #cell:prodUrl="{row}">
+          <span v-if="row.prodUrl" class="row">
+            <IconLink :value="row.prodUrl" class="mr-20" />
+            <CopyToClipboard class="cbtn" :text="row.prodUrl" />
+          </span>
+          <span v-else>-</span>
         </template>
       </SortableTable>
 
@@ -34,11 +49,11 @@
 import SortableTable from '@shell/components/ResourceTable.vue'
 import SideBar from '../components/common/SideBar.vue'
 import Overview from '../components/trident/Overview.vue'
-import { WIKI_TABLE_HEADERS } from '../config/tables'
+import { DEV_TOOLS_TABLE_HEADERS } from '../config/tables'
 import IconLink from '../components/common/IconLink.vue';
 import CopyToClipboard from '@shell/components/CopyToClipboard.vue'
 export default {
-  name: 'Wiki',
+  name: 'DevToolsPage',
   components: {
     SortableTable,
     SideBar,
@@ -71,16 +86,20 @@ export default {
     }
   },
   created() {
-    this.main.headers = WIKI_TABLE_HEADERS
+    this.main.headers = DEV_TOOLS_TABLE_HEADERS
 
     this.main.rows = [
       {
-        title: 'Development',
-        url: "https://nowcom.atlassian.net/wiki/spaces/DEV/overview"
+        title: 'BlazeMeter',
+        dev2url: null,
+        int0url: null,
+        prodUrl: "https://auth.blazemeter.com/auth/realms/blazect/protocol/saml/clients/blazemeter#/accounts/493736/workspaces/494942/dashboard",
       },
       {
-        title: 'DC Trident',
-        url: "https://nowcom.atlassian.net/wiki/spaces/DEV/pages/2963865806/DC+Trident"
+        title: 'BrowserStack',
+        dev2url: null,
+        int0url: null,
+        prodUrl: "https://live.browserstack.com/dashboard#os=android&os_version=6.0&device=Google+Nexus+6&device_browser=chrome&zoom_to_fit=true&full_screen=true&url=https%3A%2F%2Fapp.dealercenter.net%2Fapps%2Fshell%2Freports%2Fcustom%2Finventoryreport%2Ffacebook-marketplace%3FreportId%3D-1174&speed=1",
       },
     ]
   }

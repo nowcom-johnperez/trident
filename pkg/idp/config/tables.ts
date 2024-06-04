@@ -77,5 +77,36 @@ const WIKI_TABLE_HEADERS: SortableHeaderType[] = [
   },
 ];
 
+const DEV_TOOLS_TABLE_HEADERS: SortableHeaderType[] = [
+  {
+      name: 'title',
+      label: 'Title',
+      sort: ['title'],
+      search: ['title'],
+      width: 10,
+  },
+  {
+      name: 'dev2url',
+      label: 'Dev2 URL',
+      sort: ['dev2url'],
+      search: ['dev2url'],
+      width: 10
+  },
+  {
+      name: 'int0url',
+      label: 'Int0 URL',
+      sort: ['int0url'],
+      search: ['int0url'],
+      width: 10
+  },
+  {
+      name: 'prodUrl',
+      label: 'Prod URL',
+      sort: ['prodUrl'],
+      search: ['prodUrl'],
+      width: 10
+  },
+];
 
-export { TRIDENT_TABLE_HEADERS, WIKI_TABLE_HEADERS }
+
+export { TRIDENT_TABLE_HEADERS, WIKI_TABLE_HEADERS, DEV_TOOLS_TABLE_HEADERS }

@@ -17,6 +17,9 @@
         <template #cell:title="{row}">
           <a href="#" @click.prevent="openSidebar(row)">{{ row.title }}</a>
         </template>
+        <template #cell:ip="{row}">
+          <CopyToClipboardText :text="row.ip" />
+        </template>
       </SortableTable>
 
       <SideBar type="main" :sidebar-visible="main.sidebar.show" @close="closeSidebar">
@@ -27,16 +30,19 @@
 </template>
 
 <script>
+import CopyToClipboardText from '@shell/components/CopyToClipboardText.vue'
 import SortableTable from '@shell/components/ResourceTable.vue'
 import SideBar from '../components/common/SideBar.vue'
 import Overview from '../components/trident/Overview.vue'
 import { TRIDENT_TABLE_HEADERS } from '../config/tables'
+
 export default {
   name: 'Trident',
   components: {
     SortableTable,
     SideBar,
-    Overview
+    Overview,
+    CopyToClipboardText
   },
   data() {
     return {

@@ -5,25 +5,20 @@
     </div>
     
     <div class="value-placeholder">
-      <VTooltip v-if="!editable" :distance="15">
-        <span class="hover-container" @mouseover="showCopyIcon = true" @mouseleave="showCopyIcon = false">
-          <span class="content">{{ displayValue }}</span>
-          <span class="ml-5 copy-container" v-show="showCopyIcon" @click="copyValue">
-            <i class="fa fa-copy"></i>
-          </span>
-        </span>
-
-        <template #popper>
-          {{ displayValue }}
-        </template>
-      </VTooltip>
+      <span v-if="!editable" v-clean-tooltip="tooltip">
+        <CopyToClipboardText :text="displayValue" :plain="true" />
+      </span>
       <input v-else v-model="displayValue" type="text" @input="updateValue">
     </div>
   </div>
 </template>
 <script>
+import CopyToClipboardText from '@shell/components/CopyToClipboardText.vue'
 export default {
   name: 'DisplayValue',
+  components: {
+    CopyToClipboardText
+  },
   props: {
     label: {
       type: String,
@@ -44,8 +39,15 @@ export default {
   },
   data() {
     return {
-      showCopyIcon: false,
       displayValue: this.value
+    }
+  },
+  computed: {
+    tooltip() {
+      return {
+        content: this.value,
+        hideOnTargetClick: false
+      };
     }
   },
   watch: {
@@ -54,13 +56,6 @@ export default {
     }
   },
   methods: {
-    copyValue () {
-      navigator.clipboard.writeText(this.value).then(() => {
-        alert('value has been copied to clipboard!');
-      }).catch(err => {
-        console.error(`Copy error`, err)
-      })
-    },
     updateValue(event) {
       this.displayValue = event.target.value;
       this.$emit('input', { value: event.target.value, label: this.label });

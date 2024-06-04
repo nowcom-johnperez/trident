@@ -6,7 +6,7 @@ import { BadgeState } from '@components/BadgeState';
 import { mapGetters, mapState } from 'vuex';
 import { MANAGEMENT, CAPI } from '@shell/config/types';
 import { NAME as MANAGER } from '@shell/config/product/manager';
-import { STATE } from '@shell/config/table-headers';
+import { STATE, INTERNAL_EXTERNAL_IP, NODE, AGE } from '@shell/config/table-headers';
 import { createMemoryFormat, formatSi, parseSi, createMemoryValues } from '@shell/utils/units';
 import { getVersionInfo } from '@shell/utils/version';
 import PageHeaderActions from '@shell/mixins/page-actions';
@@ -20,7 +20,7 @@ import ListNamespace from '@shell/pages/c/_cluster/_product/namespaces.vue'
 import { RESET_CARDS_ACTION, SET_LOGIN_ACTION } from '@shell/config/page-actions';
 
 export default {
-  name:       'K8sTable',
+  name:       'Virtualization',
   components: {
     IndentedPanel,
     SortableTable,
@@ -109,7 +109,7 @@ export default {
       };
     },
 
-    clusterHeaders() {
+    vnetHeaders() {
       return [
         STATE,
         {
@@ -119,18 +119,6 @@ export default {
           sort:          ['nameSort'],
           canBeVariable: true,
           getValue:      (row) => row.mgmt?.nameDisplay
-        },
-        {
-          label:     this.t('landing.clusters.provider'),
-          value:     'mgmt.status.provider',
-          name:      'Provider',
-          sort:      ['mgmt.status.provider'],
-          formatter: 'ClusterProvider'
-        },
-        {
-          label: this.t('landing.clusters.kubernetesVersion'),
-          value: 'kubernetesVersion',
-          name:  'Kubernetes Version'
         },
         {
           label: this.t('tableHeaders.cpu'),
@@ -146,18 +134,9 @@ export default {
           sort:  ['status.allocatable.memory', 'status.available.memory']
 
         },
-        {
-          label:        this.t('tableHeaders.pods'),
-          name:         'pods',
-          value:        '',
-          sort:         ['status.allocatable.pods', 'status.requested.pods'],
-          formatter:    'PodsUsage',
-          delayLoading: true
-        },
-        // {
-        //   name:  'explorer',
-        //   label:  this.t('landing.clusters.explorer')
-        // }
+        INTERNAL_EXTERNAL_IP,
+        NODE,
+        AGE
       ];
     },
 
@@ -246,7 +225,7 @@ export default {
                 :row-actions="false"
                 key-field="id"
                 :rows="kubeClusters"
-                :headers="clusterHeaders"
+                :headers="vnetHeaders"
                 :loading="!kubeClusters"
                 :paging="true" 
                 :rows-per-page="5" 
@@ -254,7 +233,7 @@ export default {
                 <template #header-left>
                   <div class="row table-heading">
                     <h2 class="mb-0">
-                      K8's Cluster
+                      Virtualization
                     </h2>
                     <BadgeState
                       v-if="kubeClusters"
@@ -334,11 +313,8 @@ export default {
             </div>
           </div>
         </div>
-        <!-- <CommunityLinks class="col span-3 side-panel" /> -->
-
       </div>
     </IndentedPanel>
-    <!-- <ListNamespace></ListNamespace> -->
   </div>
 </template>
 <style lang='scss' scoped>

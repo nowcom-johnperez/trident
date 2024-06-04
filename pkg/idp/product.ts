@@ -99,9 +99,9 @@ export function init($plugin: any, store: any) {
   });
 
   // registering the defined pages as side-menu entries
-  basicType([HOME, HOME+"1", TRIDENT_PAGE_NAME, DEV_TOOLS_PAGE_NAME, WIKI_PAGE_NAME]);
-  weightType(HOME, 1001, true)
-  weightType(TRIDENT_PAGE_NAME, 998, true)
-  weightType(DEV_TOOLS_PAGE_NAME, 999, true)
-  weightType(WIKI_PAGE_NAME, 1000, true)
+  basicType([HOME, TRIDENT_PAGE_NAME, DEV_TOOLS_PAGE_NAME, WIKI_PAGE_NAME]);
+  weightType(HOME, 1004, true)
+  weightType(TRIDENT_PAGE_NAME, 1003, true)
+  weightType(DEV_TOOLS_PAGE_NAME, 1002, true)
+  weightType(WIKI_PAGE_NAME, 1001, true)
 }
