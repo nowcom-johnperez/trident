@@ -1,4 +1,12 @@
 @import '../font-awesome-4.7.0/css/font-awesome.min.css';
+.idp-container .dashboard-content {
+  padding-left: 0 !important;
+}
+
+.idp-container .dashboard-content .side-menu {
+  display: none !important;
+}
+
 p {
   line-height: 1.3;
 }

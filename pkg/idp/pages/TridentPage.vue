@@ -35,9 +35,10 @@ import SortableTable from '@shell/components/ResourceTable.vue'
 import SideBar from '../components/common/SideBar.vue'
 import Overview from '../components/trident/Overview.vue'
 import { TRIDENT_TABLE_HEADERS } from '../config/tables'
-
+import routeInit from '../mixins/init'
 export default {
   name: 'Trident',
+  mixins: [routeInit],
   components: {
     SortableTable,
     SideBar,

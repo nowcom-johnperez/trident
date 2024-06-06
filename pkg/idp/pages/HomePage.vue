@@ -18,8 +18,10 @@ import cButton from '../components/common/Button'
 import K8STable from '../components/home/k8s-table'
 import Virtualization from '../components/home/virtualization'
 import { getVendor } from '@shell/config/private-label';
+import routeInit from '../mixins/init'
 export default {
   name: 'HomePage',
+  mixins: [routeInit],
   components: {
     K8STable,
     Virtualization,
