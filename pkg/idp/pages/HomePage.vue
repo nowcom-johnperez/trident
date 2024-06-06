@@ -1,12 +1,7 @@
 <template>
   <div class="rebranded">
     <div class="row mb-20 full-width" style="align-items: center; justify-content: space-between;">
-      <div class="col">
-        <cButton class="cbtn btn-light" @click="featureRequest">
-          Feature Request
-        </cButton>
-      </div>
-      <div class="col span-9" style="text-align: center;">
+      <div class="col" style="text-align: center;">
         <img src="../assets/img/nowcom.jpeg" alt="NOWCOM" width="400" height="150">
       </div>
     </div>

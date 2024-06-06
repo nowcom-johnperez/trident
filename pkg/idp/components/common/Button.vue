@@ -115,4 +115,11 @@ export default {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.feature-request-btn {
+  /* height: 100px;
+  width: 245px; */
+  /* font-size: 2em; */
+  white-space: normal;
+}
 </style>

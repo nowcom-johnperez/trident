@@ -1,27 +1,8 @@
 import { importTypes } from '@rancher/auto-import';
-import { IPlugin } from '@shell/core/types';
+import { IPlugin, ActionLocation } from '@shell/core/types';
 import extensionRouting from './routing/extension-routing';
 import './assets/css/custom.css'
-
-// import Vue from 'vue'
-// import {
-//   // Directives
-//   VTooltip,
-//   VClosePopper,
-//   // Components
-//   Dropdown,
-//   Tooltip,
-//   Menu
-// } from 'floating-vue'
-
-// Vue.directive('tooltip', VTooltip)
-// Vue.directive('close-popper', VClosePopper)
-
-// Vue.component('VDropdown', Dropdown)
-// Vue.component('VTooltip', Tooltip)
-// Vue.component('VMenu', Menu)
-// import 'floating-vue/dist/style.css'
-
+import { PRODUCT_NAME, PRODUCT_ROUTE_NAME, WISH_PAGE_NAME } from './config/constants'
 // Init the package
 export default function(plugin: IPlugin): void {
   // Auto-import model, detail, edit from the folders
@@ -29,8 +10,27 @@ export default function(plugin: IPlugin): void {
 
   // Provide plugin metadata from package.json
   plugin.metadata = require('./package.json');
-
   // Load a product
   plugin.addProduct(require('./product'));
+
+  plugin.addAction(
+    ActionLocation.HEADER,
+    { product: [PRODUCT_NAME] },
+    {
+      tooltip:    'Make a wish',
+      shortcut:   'b',
+      icon:       'icon-rancher-desktop',
+      enabled(ctx: any) {
+        return true;
+      },
+      invoke(opts: any, resources: any) {
+        const router = (this as any).$router;
+        if (router) {
+          router.push({ name: `${ PRODUCT_ROUTE_NAME }-c-cluster-${ WISH_PAGE_NAME }` });
+        }
+      }
+    }
+  );
+
   plugin.addRoutes(extensionRouting);
 }

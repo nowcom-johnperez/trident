@@ -6,3 +6,4 @@ export const TRIDENT_PAGE_NAME = 'Trident';
 export const DEV_TOOLS_PAGE_NAME = 'DevTools';
 export const WIKI_PAGE_NAME = 'Wiki';
 export const HOME = 'home';
+export const WISH_PAGE_NAME = 'Wish';
