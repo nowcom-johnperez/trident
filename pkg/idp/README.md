@@ -1,6 +1,7 @@
 # Internal Developer Portal
 
-Nowcom Network Automation Platform - Developed by Nowcom Infrastructure Team
+### Trident
+Trident simplifies setup and management of Kubernetes clusters, enabling each team to quickly and effortlessly create their own testing environments.
 
 Release v0.1.0
 -  Initial UI Design
