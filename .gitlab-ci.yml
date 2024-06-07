@@ -1,4 +1,4 @@
-image: registry.suse.com/bci/bci-base:latest
+image: registry.suse.com/bci/bci-base:15.5.36.11.31
 
 stages:
   - check_version
