@@ -38,10 +38,11 @@ build_and_release:
     - *podman-setup
     - zypper addrepo https://download.opensuse.org/repositories/devel:languages:nodejs/SLE_12_SP5/devel:languages:nodejs.repo
     - zypper --non-interactive --no-gpg-checks refresh
-    - zypper --non-interactive install openssl openssl-devel
-    - zypper --non-interactive install go git nodejs16 npm16 helm
+    - zypper --non-interactive install go git helm
     - YQ_URL="https://github.com/mikefarah/yq/releases/download/v4.35.2/yq_linux_amd64"
     - curl -sLf ${YQ_URL} -o /usr/bin/yq && chmod +x /usr/bin/yq
+    - zypper --non-interactive install npm16
+    - zypper --non-interactive install nodejs16
     - npm install -g --unsafe-perm yarn
     - yarn
     - yarn publish-pkgs -cl -r $REGISTRY -o $IMAGE_NAMESPACE
