@@ -8,5 +8,5 @@ spec:
   plugin:
     name: {{ include "extension-server.fullname" . }}
     version: {{ (semver (default .Chart.AppVersion .Values.plugin.versionOverride)).Original }}
-    endpoint: https://raw.githubusercontent.com/https://github.com/nowcom-johnperez/trident.git/main/extensions/idp/0.1.4
+    endpoint: https://raw.githubusercontent.com/https://github.com/nowcom-johnperez/trident/main/extensions/idp/0.1.4
     noCache: {{ .Values.plugin.noCache }}
